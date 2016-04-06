@@ -7,12 +7,19 @@ namespace Version_2_C
     {
         private float _Weight;
         private string _Material;
+
+        //step one creating a delegate for observer pattern 2 lines.
+        public delegate void LoadSculptureFormDelegate(clsSculpture prSculpture);
+        public static LoadSculptureFormDelegate LoadSculptureForm;
+
         //commented this out not sure if right for step 4 singleton
         //[NonSerialized()]
         //private static frmSculpture _SculptureDialog;
 
         public override void EditDetails()
         {
+            //step 2 added to call delegate for observer pattern replaces the code added for singleton.
+            LoadSculptureForm(this);
             //where ever there is new used you will get an error once converted to singleton so you need to correct.
             //singleton does not need this code change check what I have done with Matthias
             //commented this out not sure if right for step 5 singleton

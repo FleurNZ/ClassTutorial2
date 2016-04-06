@@ -3,6 +3,13 @@ namespace Version_2_C
     //change to sealed class step 3 singleton
     sealed public partial class frmSculpture : Version_2_C.frmWork
     {
+
+        //step 3 added for observer pattern
+        public static void Run(clsSculpture prSculpture)
+        {
+            //this line of code is now calling on the instance implemented for the singleton pattern
+            Instance.SetDetails(prSculpture);
+        }
         //added for singleton step 2 in this case I made this public is this right??
         public static readonly frmSculpture Instance = new frmSculpture();
         //change public class to private class singleton step 1
