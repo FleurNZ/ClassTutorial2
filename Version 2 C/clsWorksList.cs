@@ -6,8 +6,10 @@ namespace Version_2_C
     [Serializable()]
     public class clsWorksList : List<clsWork>
     {
-        private static clsNameComparer _NameComparer = new clsNameComparer();
-        private static clsDateComparer _DateComparer = new clsDateComparer();
+        //step 4 removed for singleton is this right?
+        //private static clsNameComparer _NameComparer = new clsNameComparer();
+        //step 4 removed for singleton is this right?
+        //private static clsDateComparer _DateComparer = new clsDateComparer();
         private byte _SortOrder;
 
         public void AddWork(char prChoice)
@@ -42,13 +44,16 @@ namespace Version_2_C
 
         public void SortByName()
         {
-            Sort(_NameComparer);
+            //make lasy and thread safe step 5 for Singleton.
+            Sort(clsNameComparer.Instance);
+            //Sort(_NameComparer);removed for singleton
             _SortOrder = 0;
         }
 
         public void SortByDate()
         {
-            Sort(_DateComparer);
+            //make lasy and thread safe step 5 for Singleton.
+            Sort(clsDateComparer.Instance);
             _SortOrder = 1;
         }
 

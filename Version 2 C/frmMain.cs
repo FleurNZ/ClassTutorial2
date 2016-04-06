@@ -3,14 +3,27 @@ using System.Windows.Forms;
 
 namespace Version_2_C
 {
-    public partial class frmMain : Form
+    //changed class to sealed
+    sealed public partial class frmMain : Form
     {
+        //singleton frm main a bit different  you need to encapsulate field to get a public variable this is due to the optimiser.
+        private static readonly frmMain _Instance = new frmMain(); 
+        
+        //should change class to private for singleton but seems to error on this one??
         public frmMain()
         {
             InitializeComponent();
         }
 
         private clsArtistList _ArtistList = new clsArtistList();
+
+        public static frmMain Instance
+        {
+            get
+            {
+                return _Instance;
+            }
+        }
 
         private void updateDisplay()
         {

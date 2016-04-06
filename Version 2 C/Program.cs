@@ -15,7 +15,11 @@ namespace Version_2_C
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            // below line added for observer pattern step 4
+            clsPainting.LoadPaintingForm = new clsPainting.LoadPaintingFormDelegate(frmPainting.Run);
+            Application.Run(new frmMain());//this line has errors when singleton first implemented until fix is carried out.
         }
+
+
     }
 }

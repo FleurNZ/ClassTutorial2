@@ -1,9 +1,19 @@
 namespace Version_2_C
 {
-    public partial class frmPainting : Version_2_C.frmWork
+    //change to sealed class step 3 singleton
+    sealed public partial class frmPainting : Version_2_C.frmWork
     {
+        //step 3 added for observer pattern
+        public static void Run(clsPainting prPainting)
+        {
+            //this line of code is now calling on the instance implemented for the singleton pattern
+            Instance.SetDetails(prPainting);
+        }
 
-        public frmPainting()
+        //added for singleton step 2 in this case I made this public is this right??
+        public static readonly frmPainting Instance = new frmPainting();
+        //change public class to private class singleton step 1
+        private frmPainting()
         {
             InitializeComponent();
         }

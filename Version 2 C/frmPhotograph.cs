@@ -1,8 +1,12 @@
 namespace Version_2_C
 {
-    public partial class frmPhotograph : Version_2_C.frmWork
+    //step 3 change to sealed class for singleton
+    sealed public partial class frmPhotograph : Version_2_C.frmWork
     {
-        public frmPhotograph()
+        //added for singleton step 2 in this case I made this public is this right??
+        public static readonly frmPhotograph Instance = new frmPhotograph();
+        //change to private class for singleton step 1
+        private frmPhotograph()
         {
             InitializeComponent();
         }

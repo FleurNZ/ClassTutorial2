@@ -8,15 +8,19 @@ namespace Version_2_C
         private float _Width;
         private float _Height;
         private string _Type;
-
-        [NonSerialized()]
-        private frmPhotograph _PhotoDialog;
+        //commented this out not sure if right for step 4 singleton
+        //[NonSerialized()]
+        //private frmPhotograph _PhotoDialog;
 
         public override void EditDetails()
         {
-            if (_PhotoDialog == null)
-                _PhotoDialog = new frmPhotograph();
-            _PhotoDialog.SetDetails(this);
+            //where ever there is new used you will get an error once converted to singleton so you need to correct.
+            //singleton does not need this code change check what I have done with Matthias
+            //commented this out not sure if right for step 5 singleton
+            frmPhotograph.Instance.SetDetails(this);
+            //if (_PhotoDialog == null)
+            //    _PhotoDialog = new frmPhotograph();
+            //_PhotoDialog.SetDetails(this);
         }
 
         public Single Width
