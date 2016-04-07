@@ -1,5 +1,8 @@
 using System;
+//add generics reference
+using System.Collections.Generic;
 using System.Windows.Forms;
+
 
 namespace Version_2_C
 {
@@ -10,13 +13,35 @@ namespace Version_2_C
             InitializeComponent();
         }
 
+        
         private clsArtist _Artist;
         private clsWorksList _WorksList;
+        //instantiates a container that holds the contents of the dictionary step 1 of task 7.
+        private static Dictionary<clsArtist, frmArtist> _ArtistFormList = new Dictionary<clsArtist, frmArtist>();
+
+        //step 3 of task 7. Need to ask questions about this bit.
+        public static void Run(clsArtist prArtist)
+        {
+            frmArtist lcArtistForm;
+            if (!_ArtistFormList.TryGetValue(prArtist, out lcArtistForm))
+            {
+                lcArtistForm = new frmArtist();
+                _ArtistFormList.Add(prArtist, lcArtistForm);
+                lcArtistForm.SetDetails(prArtist);
+            }
+            else
+            {
+                lcArtistForm.Show();
+                lcArtistForm.Activate();
+            }
+        }
 
 
+        
         private void updateDisplay()
         {
-            txtName.Enabled = txtName.Text == "";
+            //maybe the right line to comment out step 11 of 7 tut 2.
+            //txtName.Enabled = txtName.Text == "";
             if (_WorksList.SortOrder == 0)
             {
                 _WorksList.SortByName();
@@ -36,9 +61,12 @@ namespace Version_2_C
         public void SetDetails(clsArtist prArtist)
         {
             _Artist = prArtist;
+            //line added step 11 of 7 tut 2
+            txtName.Enabled = string.IsNullOrEmpty(_Artist.Name);
             updateForm();
             updateDisplay();
-            ShowDialog();
+            //method changed for step 4 of 7 tut 2.
+            Show();
         }
 
         private void updateForm()
@@ -63,6 +91,8 @@ namespace Version_2_C
             if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 _WorksList.RemoveAt(lcIndex);
+                //added step 13 task 7 tut 2.
+                frmMain.Instance.UpdateDisplay();
                 updateDisplay();
             }
         }
@@ -73,17 +103,33 @@ namespace Version_2_C
             if (!string.IsNullOrEmpty(lcReply))
             {
                 _WorksList.AddWork(lcReply[0]);
+                //added step 13 task 7 tut 2.
+                frmMain.Instance.UpdateDisplay();
                 updateDisplay();
             }
         }
 
+        //more code added to make btn intelligent step 9 or 7 tut 2.
         private void btnClose_Click(object sender, EventArgs e)
         {
             if (isValid() == true)
-            {
-                pushData();
-                Close();
-            }
+                try
+                {
+                    pushData();
+                    if (txtName.Enabled)
+                    {
+                        _Artist.NewArtist();
+                        MessageBox.Show("Artist added!", "Sucess");
+                        frmMain.Instance.UpdateDisplay();
+                        txtName.Enabled = false;
+                    }
+                    //method changed for step 4 of 7 tut 2.
+                    Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
         }
 
         private Boolean isValid()
@@ -105,6 +151,8 @@ namespace Version_2_C
             try
             {
                 _WorksList.EditWork(lstWorks.SelectedIndex);
+                //added step 13 task 7 tut 2.
+                frmMain.Instance.UpdateDisplay();
                 updateDisplay();
             }
             catch (Exception ex)

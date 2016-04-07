@@ -3,44 +3,68 @@ using System.Windows.Forms;
 
 namespace Version_2_C
 {
+  
     //changed class to sealed
-    sealed public partial class frmMain : Form
+   public sealed partial class frmMain : Form
     {
         //singleton frm main a bit different  you need to encapsulate field to get a public variable this is due to the optimiser.
-        private static readonly frmMain _Instance = new frmMain(); 
+        private static readonly frmMain _Instance = new frmMain();
         
         //should change class to private for singleton but seems to error on this one??
-        public frmMain()
+        private frmMain()
         {
             InitializeComponent();
+           
         }
 
+       
+
         private clsArtistList _ArtistList = new clsArtistList();
+
+
 
         public static frmMain Instance
         {
             get
             {
+
                 return _Instance;
+
             }
+
         }
 
-        private void updateDisplay()
+        //step 10 of 7 in tut 2 private becomes public
+        public void UpdateDisplay()
         {
-            lstArtists.DataSource = null;
-            string[] lcDisplayList = new string[_ArtistList.Count];
-            _ArtistList.Keys.CopyTo(lcDisplayList, 0);
-            lstArtists.DataSource = lcDisplayList;
-            lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
+            if (_ArtistList.Count < 1)
+            {
+                //testing to see what happens
+                //lstArtists.DataSource = null;
+                string[] lcDisplayList = new string[_ArtistList.Count];
+                _ArtistList.Keys.CopyTo(lcDisplayList, 0);
+                lstArtists.DataSource = lcDisplayList;
+                lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
+            }
+
+            else
+            {
+                string[] lcDisplayList = new string[_ArtistList.Count];
+                _ArtistList.Keys.CopyTo(lcDisplayList, 0);
+                lstArtists.DataSource = lcDisplayList;
+                lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                _ArtistList.NewArtist();
-                MessageBox.Show("Artist added!", "Success");
-                updateDisplay();
+                //step 6 task 7
+                frmArtist.Run(new clsArtist(_ArtistList));
+                //_ArtistList.NewArtist();
+                //MessageBox.Show("Artist added!", "Success");
+                //updateDisplay();
             }
             catch (Exception ex)
             {
@@ -56,8 +80,10 @@ namespace Version_2_C
             if (lcKey != null)
                 try
                 {
-                    _ArtistList.EditArtist(lcKey);
-                    updateDisplay();
+                    //Step 6 of task 7
+                    frmArtist.Run(_ArtistList[lcKey]);
+                    //_ArtistList.EditArtist(lcKey);
+                    //updateDisplay();
                 }
                 catch (Exception ex)
                 {
@@ -88,7 +114,7 @@ namespace Version_2_C
                 {
                     _ArtistList.Remove(lcKey);
                     lstArtists.ClearSelected();
-                    updateDisplay();
+                    UpdateDisplay();
 
                 }
                 catch (Exception ex)
@@ -108,7 +134,7 @@ namespace Version_2_C
             {
                 MessageBox.Show(ex.Message, "File retrieve error");
             }
-            updateDisplay();
+            UpdateDisplay();
         }
     }
 }

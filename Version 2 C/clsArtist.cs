@@ -14,8 +14,8 @@ namespace Version_2_C
 
         private clsWorksList _WorksList;
         private clsArtistList _ArtistList;
-
-        private static frmArtist _ArtistDialog = new frmArtist();
+        //removed for step 7 of task 7 of tut 2.
+        //private static frmArtist _ArtistDialog = new frmArtist();
 
         public clsArtist() { }
 
@@ -23,14 +23,28 @@ namespace Version_2_C
         {
             _WorksList = new clsWorksList();
             _ArtistList = prArtistList;
-            EditDetails();
+            //removed for step 7 of task 7 of tut 2.
+            // EditDetails();
         }
 
-        public void EditDetails()
+        //moved from clsArtsitList step 8 of 7 tut 2 and modified.
+        public void NewArtist()
         {
-            _ArtistDialog.SetDetails(this);
-            _TotalValue = _WorksList.GetTotalValue();
+            if (!string.IsNullOrEmpty(Name))
+                _ArtistList.Add(Name, this);
+            else
+                throw new Exception("no artist name entered");
+            //clsArtist lcArtist = new clsArtist(this);
+            //if (lcArtist.Name != "")
+            //    Add(lcArtist.Name, lcArtist);
         }
+
+        //obsolete after step 7 in task 7 tut 2.
+        //public void EditDetails()
+        //{
+        //    _ArtistDialog.SetDetails(this);
+        //    _TotalValue = _WorksList.GetTotalValue();
+        //}
 
         public bool IsDuplicate(string prArtistName)
         {
@@ -57,7 +71,9 @@ namespace Version_2_C
 
         public decimal TotalValue
         {
-            get { return _TotalValue; }
+            //step 12 task 7 tut 2
+            get { return _WorksList.GetTotalValue(); }
+            //get { return _TotalValue; }
         }
 
         public clsWorksList WorksList

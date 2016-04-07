@@ -20,7 +20,8 @@ namespace Version_2_C
             clsPhotograph.LoadPhotographForm = new clsPhotograph.LoadPhotographFormDelegate(frmPhotograph.Run);
             clsSculpture.LoadSculptureForm = new clsSculpture.LoadSculptureFormDelegate(frmSculpture.Run);
 
-            Application.Run(new frmMain());//this line has errors when singleton first implemented until fix is carried out.
+            //Application.Run(new frmMain());//this line has errors when singleton first implemented until fix is carried out.
+            Application.Run(frmMain.Instance);
         }
 
 
