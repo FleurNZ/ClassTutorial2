@@ -37,10 +37,10 @@ namespace Version_2_C
         //step 10 of 7 in tut 2 private becomes public
         public void UpdateDisplay()
         {
-            if (_ArtistList.Count < 1)
+            if (_ArtistList == null)
             {
-                //testing to see what happens
-                //lstArtists.DataSource = null;
+                //testing to see what happens this could be improved
+                lstArtists.DataSource = null;
                 string[] lcDisplayList = new string[_ArtistList.Count];
                 _ArtistList.Keys.CopyTo(lcDisplayList, 0);
                 lstArtists.DataSource = lcDisplayList;
