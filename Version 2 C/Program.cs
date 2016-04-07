@@ -19,8 +19,7 @@ namespace Version_2_C
             clsPainting.LoadPaintingForm = new clsPainting.LoadPaintingFormDelegate(frmPainting.Run);
             clsPhotograph.LoadPhotographForm = new clsPhotograph.LoadPhotographFormDelegate(frmPhotograph.Run);
             clsSculpture.LoadSculptureForm = new clsSculpture.LoadSculptureFormDelegate(frmSculpture.Run);
-
-            Application.Run(new frmMain.Instance);//this line has errors when singleton first implemented until fix is carried out.
+            Application.Run(frmMain.Instance);//this line has errors when singleton first implemented until fix is carried out to refer to the instance of the cls
         }
 
 
