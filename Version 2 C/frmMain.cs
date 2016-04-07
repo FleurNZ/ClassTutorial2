@@ -41,19 +41,19 @@ namespace Version_2_C
             {
                 //testing to see what happens this could be improved
                 lstArtists.DataSource = null;
-                string[] lcDisplayList = new string[_ArtistList.Count];
-                _ArtistList.Keys.CopyTo(lcDisplayList, 0);
-                lstArtists.DataSource = lcDisplayList;
-                lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
+                //string[] lcDisplayList = new string[_ArtistList.Count];
+                //_ArtistList.Keys.CopyTo(lcDisplayList, 0);
+                //lstArtists.DataSource = lcDisplayList;
+                //lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
             }
 
-            else
-            {
+            //else
+            //{
                 string[] lcDisplayList = new string[_ArtistList.Count];
                 _ArtistList.Keys.CopyTo(lcDisplayList, 0);
                 lstArtists.DataSource = lcDisplayList;
                 lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
-            }
+            //}
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
