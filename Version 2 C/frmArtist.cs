@@ -34,10 +34,17 @@ namespace Version_2_C
                 lcArtistForm.Show();
                 lcArtistForm.Activate();
             }
+
+        }
+
+        //task 9a tut 2
+        private void updateTitle(string prArtistGalleryName)
+        {
+            if (!string.IsNullOrEmpty(prArtistGalleryName))
+                Text = "Artist Details " + prArtistGalleryName;//shows ... when name is too long so no error when I though it was.
         }
 
 
-        
         private void updateDisplay()
         {
             //maybe the right line to comment out step 11 of 7 tut 2.
@@ -67,18 +74,26 @@ namespace Version_2_C
             updateDisplay();
             //method changed for step 4 of 7 tut 2.
             Show();
+            //task 9b tut 2
+            frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
+            updateTitle(_Artist.ArtistList.GalleryName);
         }
 
         private void updateForm()
         {
+            
             txtName.Text = _Artist.Name;
             txtSpeciality.Text = _Artist.Speciality;
             txtPhone.Text = _Artist.Phone;
             _WorksList = _Artist.WorksList;
+            //testing added this call hear seems to work.
+            //frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
+            //updateTitle(_Artist.ArtistList.GalleryName);
         }
 
         private void pushData()
         {
+            
             _Artist.Name = txtName.Text;
             _Artist.Speciality = txtSpeciality.Text;
             _Artist.Phone = txtPhone.Text;

@@ -9,8 +9,12 @@ namespace Version_2_C
         private string _Name;
         private string _Speciality;
         private string _Phone;
+      
 
-        private decimal _TotalValue;
+
+       
+
+        //nolonger used //private decimal _TotalValue;
 
         private clsWorksList _WorksList;
         private clsArtistList _ArtistList;
@@ -22,7 +26,7 @@ namespace Version_2_C
         public clsArtist(clsArtistList prArtistList)
         {
             _WorksList = new clsWorksList();
-            _ArtistList = prArtistList;
+            ArtistList = prArtistList;
             //removed for step 7 of task 7 of tut 2.
             // EditDetails();
         }
@@ -31,7 +35,7 @@ namespace Version_2_C
         public void NewArtist()
         {
             if (!string.IsNullOrEmpty(Name))
-                _ArtistList.Add(Name, this);
+                ArtistList.Add(Name, this);
             else
                 throw new Exception("no artist name entered");
             //clsArtist lcArtist = new clsArtist(this);
@@ -48,7 +52,7 @@ namespace Version_2_C
 
         public bool IsDuplicate(string prArtistName)
         {
-            return _ArtistList.ContainsKey(prArtistName);
+            return ArtistList.ContainsKey(prArtistName);
         }
 
         public string Name
@@ -80,5 +84,20 @@ namespace Version_2_C
         {
             get { return _WorksList; }
         }
+        //added this for task9b tut 2 not sure if right
+        public clsArtistList ArtistList
+        {
+            get
+            {
+                return _ArtistList;
+            }
+
+            set
+            {
+                _ArtistList = value;
+            }
+        }
+
+        
     }
 }

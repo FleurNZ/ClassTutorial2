@@ -7,7 +7,24 @@ namespace Version_2_C
     [Serializable()]
     public class clsArtistList : SortedDictionary<string, clsArtist>
     {
-        private const string _FileName = "gallery.dat";
+        private const string _FileName = "gallerynew.dat";
+        //task 8 tut 2 step 1
+        private string _GalleryName;
+
+        //task 8 tut 2 step 1
+        public string GalleryName
+        {
+            get
+            {
+                return _GalleryName;
+            }
+
+            set
+            {
+                _GalleryName = value;
+            }
+        }
+
 
         //obsolete after step 7 in task 7 tut 2.
         //public void EditArtist(string prKey)
@@ -20,7 +37,7 @@ namespace Version_2_C
         //        throw new Exception("Sorry no artist by this name");
         //}
 
-        
+
 
         public decimal GetTotalValue()
         {

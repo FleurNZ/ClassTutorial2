@@ -3,21 +3,26 @@ using System.Windows.Forms;
 
 namespace Version_2_C
 {
-  
+
     //changed class to sealed
-   public sealed partial class frmMain : Form
+    public sealed partial class frmMain : Form
     {
+        //task 8b tut 2
+        public delegate void Notify(string prGalleryName);
+        //task 8c tut 2
+        public event Notify GalleryNameChanged;
+
         //singleton frm main a bit different  you need to encapsulate field to get a public variable this is due to the optimiser.
         private static readonly frmMain _Instance = new frmMain();
-        
+
         //should change class to private for singleton but seems to error on this one??
         private frmMain()
         {
             InitializeComponent();
-           
+
         }
 
-       
+
 
         private clsArtistList _ArtistList = new clsArtistList();
 
@@ -34,6 +39,14 @@ namespace Version_2_C
 
         }
 
+        //task 8D tut 2
+        private void updateTitle(string prGalleryName)
+        {
+            if (!string.IsNullOrEmpty(prGalleryName))
+                Text = "Gallery - " + prGalleryName;
+        }
+
+
         //step 10 of 7 in tut 2 private becomes public
         public void UpdateDisplay()
         {
@@ -49,10 +62,10 @@ namespace Version_2_C
 
             //else
             //{
-                string[] lcDisplayList = new string[_ArtistList.Count];
-                _ArtistList.Keys.CopyTo(lcDisplayList, 0);
-                lstArtists.DataSource = lcDisplayList;
-                lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
+            string[] lcDisplayList = new string[_ArtistList.Count];
+            _ArtistList.Keys.CopyTo(lcDisplayList, 0);
+            lstArtists.DataSource = lcDisplayList;
+            lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
             //}
         }
 
@@ -84,6 +97,8 @@ namespace Version_2_C
                     frmArtist.Run(_ArtistList[lcKey]);
                     //_ArtistList.EditArtist(lcKey);
                     //updateDisplay();
+                    //trying this out
+                   // updateTitle(string prGalleryName);
                 }
                 catch (Exception ex)
                 {
@@ -135,6 +150,23 @@ namespace Version_2_C
                 MessageBox.Show(ex.Message, "File retrieve error");
             }
             UpdateDisplay();
+            //task 8E tut 2
+            GalleryNameChanged += new Notify(updateTitle);
+            GalleryNameChanged(_ArtistList.GalleryName);//event raising
+        }
+
+
+
+      
+        //task 8f tut 2
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string lcReply = new InputBox("Set a new gallery Name - Currently: " + _ArtistList.GalleryName).Answer;
+            if (!string.IsNullOrEmpty(lcReply))
+            {
+                _ArtistList.GalleryName = lcReply;
+                GalleryNameChanged(lcReply);
+            }
         }
     }
 }
