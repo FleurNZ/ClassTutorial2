@@ -20,8 +20,8 @@ namespace Version_2_C
         private clsArtistList _ArtistList;
         //removed for step 7 of task 7 of tut 2.
         //private static frmArtist _ArtistDialog = new frmArtist();
-
-        public clsArtist() { }
+        //Just commented not sure if right
+        //public clsArtist() { }
 
         public clsArtist(clsArtistList prArtistList)
         {

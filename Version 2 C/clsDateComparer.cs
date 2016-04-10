@@ -5,10 +5,21 @@ namespace Version_2_C
 {
     
     //step 3 singleton chnage to sealed
-    sealed class clsDateComparer : IComparer<clsWork>
+    public sealed class clsDateComparer : IComparer<clsWork>
     {
+        //this singleton has been updated slight dif to other this one is correct.
         //step 2 singleton add
-        public static readonly clsDateComparer Instance = new clsDateComparer();
+        private static readonly clsDateComparer _Instance = new clsDateComparer();
+
+        //step 2 singleton
+        public static clsDateComparer Instance
+        {
+            get
+            {
+                return _Instance;
+            }
+        }
+
         public int Compare(clsWork x, clsWork y)
         {
             
@@ -20,6 +31,10 @@ namespace Version_2_C
        // Step 1 singleton add
         private clsDateComparer()
         { }
+
+        static clsDateComparer()
+        { }
+
     }
 
     ///weird two here so commented out.
