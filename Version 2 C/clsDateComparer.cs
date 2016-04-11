@@ -37,18 +37,4 @@ namespace Version_2_C
 
     }
 
-    ///weird two here so commented out.
-
-    //class clsDDateComparer : IComparer<clsWork>
-    //{
-    //    public int Compare(clsWork x, clsWork y)
-    //    {
-    //        //DateTime lcDateX = x.Date;
-    //        //DateTime lcDateY = y.Date;
-
-    //        return y.Date.CompareTo(x.Date);
-
-    //        //return lcDateX.CompareTo(lcDateY);
-    //    }
-    //}
 }
