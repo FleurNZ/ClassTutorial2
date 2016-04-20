@@ -22,8 +22,9 @@ namespace Version_2_C
 
             //Application.Run(new frmMain());//this line has errors when singleton first implemented until fix is carried out.
             Application.Run(frmMain.Instance);
+
+
+
         }
-
-
     }
 }
