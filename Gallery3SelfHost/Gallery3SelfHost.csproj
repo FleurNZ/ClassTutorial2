@@ -73,8 +73,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GalleryModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="lService1.cs" />
-    <Compile Include="OperationalContractAttribute.cs" />
+    <Compile Include="IServicel.cs" />
     <Compile Include="Painting.cs">
       <DependentUpon>GalleryModel.tt</DependentUpon>
     </Compile>
@@ -86,8 +85,7 @@
     <Compile Include="Sculpture.cs">
       <DependentUpon>GalleryModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Service1.cs" />
-    <Compile Include="ServiceContractAttribute.cs" />
+    <Compile Include="Servicel.cs" />
     <Compile Include="Work.cs">
       <DependentUpon>GalleryModel.tt</DependentUpon>
     </Compile>

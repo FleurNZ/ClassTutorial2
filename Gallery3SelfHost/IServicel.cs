@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,10 @@ using System.Threading.Tasks;
 namespace Gallery3SelfHost
 {
     [ServiceContract]
-    interface lService1
+    interface IServicel
     {
-        [OperationalContract]
+     
+        [OperationContract]
         List<string> GetArtistNames();
         
 
