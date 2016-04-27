@@ -14,7 +14,7 @@ namespace Gallery3SelfHost
         static void Main(string[] args)
         {
             //Create a ServiceHost
-            using (ServiceHost serviceHost = new ServiceHost(typeof(Servicel)))
+            using (ServiceHost serviceHost = new ServiceHost(typeof(Service1)))
             {
            
             //Open the ServiceHost to create listeners

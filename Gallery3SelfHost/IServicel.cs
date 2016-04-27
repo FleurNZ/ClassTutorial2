@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Gallery3SelfHost
 {
     [ServiceContract]
-    interface IServicel
+    interface IService1
     {
      
         [OperationContract]
