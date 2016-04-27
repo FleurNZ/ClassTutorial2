@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gallery3SelfHost
 {   //add : IServicel
-    class Servicel: IServicel
+    class Servicel:IServicel
     {
         public List<string> GetArtistNames()
         {
