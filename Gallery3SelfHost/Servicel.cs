@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Gallery3SelfHost
-{   //add : IService1
+{  
     class Service1:IService1
     {
         public List<string> GetArtistNames()
