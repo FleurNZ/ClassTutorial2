@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ServiceModel;
+using SelfHost.DTO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,10 @@ namespace Gallery3SelfHost
      
         [OperationContract]
         List<string> GetArtistNames();
-        
+        [OperationContract]
+        clsArtist GetArtist(string prArtistName);
+
+
 
     }
 

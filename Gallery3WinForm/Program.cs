@@ -7,6 +7,8 @@ namespace Gallery3WinForm
 {
     static class Program
     {
+        public static ServiceReference1.Service1Client SvcClient = new ServiceReference1.Service1Client();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -22,6 +24,9 @@ namespace Gallery3WinForm
 
             //Application.Run(new frmMain());//this line has errors when singleton first implemented until fix is carried out.
             Application.Run(frmMain.Instance);
+            //tidy up after using service
+            if (SvcClient != null && SvcClient.State != System.ServiceModel.CommunicationState.Closed)
+                SvcClient.Close();
 
 
 

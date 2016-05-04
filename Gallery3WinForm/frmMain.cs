@@ -50,6 +50,8 @@ namespace Gallery3WinForm
         //step 10 of 7 in tut 2 private becomes public
         public void UpdateDisplay()
         {
+            lstArtists.DataSource = null;
+            lstArtists.DataSource = Program.SvcClient.GetArtistNames();
             //if (_ArtistList == null)
             //{
             //    //testing to see what happens this could be improved
@@ -93,17 +95,17 @@ namespace Gallery3WinForm
             //if (lcKey != null)
             //    try
             //    {
-            //        //Step 6 of task 7
-            //        frmArtist.Run(_ArtistList[lcKey]);
-            //        //_ArtistList.EditArtist(lcKey);
-            //        //updateDisplay();
-            //        //trying this out
-            //       // updateTitle(string prGalleryName);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message, "This should never occur");
-            //    }
+                    //Step 6 of task 7
+                    frmArtist.Run(lstArtists.SelectedItem as string);
+                    //_ArtistList.EditArtist(lcKey);
+                    //updateDisplay();
+                    //trying this out
+                    // updateTitle(string prGalleryName);
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show(ex.Message, "This should never occur");
+                //}
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
