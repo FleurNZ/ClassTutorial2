@@ -44,15 +44,15 @@ namespace Gallery3SelfHost
             }
         }
 
-        public int UpdateArtist(clsArtist prArtist)
-        {
-            return process(prArtist.MapToEntity(), System.Data.Entity.EntityState.Modified);
-        }
+        //public int UpdateArtist(clsArtist prArtist)
+        //{
+        //    return process(prArtist.MapToEntity(), System.Data.Entity.EntityState.Modified);
+        //}
 
-        public int InsertArtist(clsArtist prArtist)
-        {
-            return process(prArtist.MapToEntity(), System.Data.Entity.EntityState.Added);
-        }
+        //public int InsertArtist(clsArtist prArtist)
+        //{
+        //    return process(prArtist.MapToEntity(), System.Data.Entity.EntityState.Added);
+        //}
     }
 }
 

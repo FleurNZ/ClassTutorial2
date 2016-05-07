@@ -20,11 +20,11 @@ namespace SelfHost.DTO
         //[DataMember]
         //public ICollection<clsWork> Works { get; set; }
 
-        public clsArtist MapToEntity()
-        {
-            return new Artist()
-            { Name = this.Name, Phone = this.Phone, Speciality = this.Speciality };
-        }
+        //public clsArtist MapToEntity()
+        //{
+        //    //return new Artist()
+        //    //{ Name = this.Name, Phone = this.Phone, Speciality = this.Speciality };
+        //}
         }
        
 }
