@@ -20,9 +20,9 @@ namespace SelfHost.DTO
         //[DataMember]
         //public ICollection<clsWork> Works { get; set; }
 
-        public Artist MapToEntity()
+        public Gallery3SelfHost.Artist MapToEntity()
         {
-            return new Artist()
+            return new Gallery3SelfHost.Artist()
             { Name = this.Name, Phone = this.Phone, Speciality = this.Speciality };
         }
 
