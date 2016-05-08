@@ -96,9 +96,9 @@ namespace Gallery3WinForm
         private void updateForm()
         {
             
-            //txtName.Text = _Artist.Name;
-            //txtSpeciality.Text = _Artist.Speciality;
-            //txtPhone.Text = _Artist.Phone;
+            txtName.Text = _Artist.Name;
+            txtSpeciality.Text = _Artist.Speciality;
+            txtPhone.Text = _Artist.Phone;
             //_WorksList = _Artist.WorksList;
             //testing added this call hear seems to work.
             //frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
@@ -108,9 +108,9 @@ namespace Gallery3WinForm
         private void pushData()
         {
             
-            //_Artist.Name = txtName.Text;
-            //_Artist.Speciality = txtSpeciality.Text;
-            //_Artist.Phone = txtPhone.Text;
+            _Artist.Name = txtName.Text;
+            _Artist.Speciality = txtSpeciality.Text;
+            _Artist.Phone = txtPhone.Text;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -141,18 +141,20 @@ namespace Gallery3WinForm
         //more code added to make btn intelligent step 9 or 7 tut 2.
         private void btnClose_Click(object sender, EventArgs e)
         {
+          
             if (isValid() == true)
                 try
                 {
                     pushData();
                     if (txtName.Enabled)
                     {
-                        //_Artist.NewArtist();
+                        //Program.SvcClient.InsertArtist(_Artist);
                         MessageBox.Show("Artist added!", "Sucess");
                         frmMain.Instance.UpdateDisplay();
                         txtName.Enabled = false;
                     }
-                    //method changed for step 4 of 7 tut 2.
+                    else
+                        //Program.SvcClient.UpdateArtist(_Artist);
                     Hide();
                 }
                 catch (Exception ex)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using Gallery3SelfHost;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,9 @@ namespace SelfHost.DTO
         //[DataMember]
         //public ICollection<clsWork> Works { get; set; }
 
-        public Gallery3SelfHost.Artist MapToEntity()
+        public Artist MapToEntity()
         {
-            return new Gallery3SelfHost.Artist()
+            return new Artist()
             { Name = this.Name, Phone = this.Phone, Speciality = this.Speciality };
         }
 

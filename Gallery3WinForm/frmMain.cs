@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using Gallery3WinForm.ServiceReference1;
 
 namespace Gallery3WinForm
 {
@@ -75,11 +76,11 @@ namespace Gallery3WinForm
         {
             try
             {
-                //step 6 task 7
-                //frmArtist.Run(new clsArtist(_ArtistList));
+                
+                frmArtist.Run(null);
                 //_ArtistList.NewArtist();
-                //MessageBox.Show("Artist added!", "Success");
-                //updateDisplay();
+                MessageBox.Show("Artist added!", "Success");
+                UpdateDisplay();
             }
             catch (Exception ex)
             {
