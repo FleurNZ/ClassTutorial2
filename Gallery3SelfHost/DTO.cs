@@ -17,8 +17,15 @@ namespace SelfHost.DTO
             [DataMember]
             public string Phone { get; set; }
 
-            //[DataMember]
-            //public ICollection<clsWork> Works { get; set; }
+        //[DataMember]
+        //public ICollection<clsWork> Works { get; set; }
+
+        public Artist MapToEntity()
+        {
+            return new Artist()
+            { Name = this.Name, Phone = this.Phone, Speciality = this.Speciality };
         }
+
+    }
        
 }
