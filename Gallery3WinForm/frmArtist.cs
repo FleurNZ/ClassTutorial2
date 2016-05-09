@@ -3,6 +3,7 @@ using System;
 //add generics reference
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 
 
@@ -61,6 +62,7 @@ namespace Gallery3WinForm
 
         private void updateDisplay()
         {
+
             //maybe the right line to comment out step 11 of 7 tut 2.
             ////txtName.Enabled = txtName.Text == "";
             //if (_WorksList.SortOrder == 0)
@@ -74,7 +76,9 @@ namespace Gallery3WinForm
             //    rbByDate.Checked = true;
             //}
 
-            //lstWorks.DataSource = null;
+            lstWorks.DataSource = null;
+            if (_Artist.Works != null)
+                lstWorks.DataSource = _Artist.Works.ToList();
             //lstWorks.DataSource = _WorksList;
             //lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
         }

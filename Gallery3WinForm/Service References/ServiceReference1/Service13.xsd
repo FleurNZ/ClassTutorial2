@@ -5,17 +5,17 @@
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Speciality" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Works" nillable="true" type="tns:ArrayOfclsArtist.clsWork" />
+      <xs:element minOccurs="0" name="Works" nillable="true" type="tns:ArrayOfclsWork" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsArtist" nillable="true" type="tns:clsArtist" />
-  <xs:complexType name="ArrayOfclsArtist.clsWork">
+  <xs:complexType name="ArrayOfclsWork">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsArtist.clsWork" nillable="true" type="tns:clsArtist.clsWork" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsWork" nillable="true" type="tns:clsWork" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfclsArtist.clsWork" nillable="true" type="tns:ArrayOfclsArtist.clsWork" />
-  <xs:complexType name="clsArtist.clsWork">
+  <xs:element name="ArrayOfclsWork" nillable="true" type="tns:ArrayOfclsWork" />
+  <xs:complexType name="clsWork">
     <xs:sequence>
       <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
@@ -23,10 +23,10 @@
       <xs:element minOccurs="0" name="Value" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="clsArtist.clsWork" nillable="true" type="tns:clsArtist.clsWork" />
-  <xs:complexType name="clsArtist.clsPhotograph">
+  <xs:element name="clsWork" nillable="true" type="tns:clsWork" />
+  <xs:complexType name="clsPhotograph">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:clsArtist.clsWork">
+      <xs:extension base="tns:clsWork">
         <xs:sequence>
           <xs:element minOccurs="0" name="Height" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
@@ -35,10 +35,10 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="clsArtist.clsPhotograph" nillable="true" type="tns:clsArtist.clsPhotograph" />
-  <xs:complexType name="clsArtist.clsPainting">
+  <xs:element name="clsPhotograph" nillable="true" type="tns:clsPhotograph" />
+  <xs:complexType name="clsPainting">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:clsArtist.clsWork">
+      <xs:extension base="tns:clsWork">
         <xs:sequence>
           <xs:element minOccurs="0" name="Height" nillable="true" type="xs:float" />
           <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
@@ -47,10 +47,10 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="clsArtist.clsPainting" nillable="true" type="tns:clsArtist.clsPainting" />
-  <xs:complexType name="clsArtist.clsSculpture">
+  <xs:element name="clsPainting" nillable="true" type="tns:clsPainting" />
+  <xs:complexType name="clsSculpture">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:clsArtist.clsWork">
+      <xs:extension base="tns:clsWork">
         <xs:sequence>
           <xs:element minOccurs="0" name="Material" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:float" />
@@ -58,5 +58,5 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="clsArtist.clsSculpture" nillable="true" type="tns:clsArtist.clsSculpture" />
+  <xs:element name="clsSculpture" nillable="true" type="tns:clsSculpture" />
 </xs:schema>

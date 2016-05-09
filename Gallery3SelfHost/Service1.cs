@@ -27,12 +27,12 @@ namespace Gallery3SelfHost
                      .Where(Artist => Artist.Name == prArtistName)
                      .FirstOrDefault();
                 clsArtist lcArtistDTO = new clsArtist
-                //{ Name = lcArtist.Name, Speciality = lcArtist.Speciality, Phone = lcArtist.Phone, Works = new List<clsWork>() };
-                //foreach (Work item in lcArtist.Works)
-                //    lcArtistDTO.Works.Add(item.MapToDTO());
-                //return lcArtistDTO;
-                { Name = lcArtist.Name, Speciality = lcArtist.Speciality, Phone = lcArtist.Phone };
+                { Name = lcArtist.Name, Speciality = lcArtist.Speciality, Phone = lcArtist.Phone, Works = new List<clsWork>() };
+                foreach (Work item in lcArtist.Works)
+                    lcArtistDTO.Works.Add(item.MapToDTO());
                 return lcArtistDTO;
+                //{ Name = lcArtist.Name, Speciality = lcArtist.Speciality, Phone = lcArtist.Phone };
+                //return lcArtistDTO;
 
             }
         }
