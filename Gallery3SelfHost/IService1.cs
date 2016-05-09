@@ -17,13 +17,22 @@ namespace Gallery3SelfHost
         List<string> GetArtistNames();
         [OperationContract]
         clsArtist GetArtist(string prArtistName);
+        [OperationContract]
         int InsertArtist(clsArtist prArtist);
+        [OperationContract]
         int UpdateArtist(clsArtist prArtist);
+
+        //[OperationContract]
+        //int InsertWork(clsWork prWork);
+        //[OperationContract]
+        //int UpdateWork(clsWork prWork);
+        //[OperationContract]
+        //int DeleteWork(clsWork prWork);
 
 
     }
 
-   
+
 
 
 }

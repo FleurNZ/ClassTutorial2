@@ -148,13 +148,13 @@ namespace Gallery3WinForm
                     pushData();
                     if (txtName.Enabled)
                     {
-                        //Program.SvcClient.InsertArtist(_Artist);
+                        Program.SvcClient.InsertArtist(_Artist);
                         MessageBox.Show("Artist added!", "Sucess");
                         frmMain.Instance.UpdateDisplay();
                         txtName.Enabled = false;
                     }
                     else
-                        //Program.SvcClient.UpdateArtist(_Artist);
+                        Program.SvcClient.UpdateArtist(_Artist);
                     Hide();
                 }
                 catch (Exception ex)
