@@ -140,7 +140,7 @@ namespace Gallery3WinForm
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error deleing artist");
+                    MessageBox.Show(ex.Message, "Error deleting artist");
                 }
         }
 

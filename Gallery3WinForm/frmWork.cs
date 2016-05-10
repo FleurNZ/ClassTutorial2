@@ -26,10 +26,19 @@ namespace Gally3WinForm
             if (isValid())
             {
                 pushData();
-                if (txtName.Enabled)
-                    Program.SvcClient.InsertWork(_Work);
-                else
-                    Program.SvcClient.UpdateWork(_Work);
+                try
+                {
+                    if (txtName.Enabled)
+                    {
+                        Program.SvcClient.InsertWork(_Work);
+                    }
+                    else
+                    { Program.SvcClient.UpdateWork(_Work); }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "item can not be saved or updated");
+                }
 
                 Close();
             }

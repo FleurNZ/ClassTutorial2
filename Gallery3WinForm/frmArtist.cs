@@ -123,12 +123,17 @@ namespace Gallery3WinForm
 
             if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Program.SvcClient.DeleteWork(lstWorks.SelectedItem as clsWork);
+                try
+                { Program.SvcClient.DeleteWork(lstWorks.SelectedItem as clsWork); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "item can not be deleted");
+                }
                 refreshFormFromDB(_Artist.Name);
                 //_WorksList.RemoveAt(lcIndex);
                 //added step 13 task 7 tut 2.
                 frmMain.Instance.UpdateDisplay();
-               
+
             }
         }
 
