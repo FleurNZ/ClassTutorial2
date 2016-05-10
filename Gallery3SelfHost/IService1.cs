@@ -21,13 +21,15 @@ namespace Gallery3SelfHost
         int InsertArtist(clsArtist prArtist);
         [OperationContract]
         int UpdateArtist(clsArtist prArtist);
+        [OperationContract]
+        int DeleteArtist(clsArtist prArtist);
 
-        //[OperationContract]
-        //int InsertWork(clsWork prWork);
-        //[OperationContract]
-        //int UpdateWork(clsWork prWork);
-        //[OperationContract]
-        //int DeleteWork(clsWork prWork);
+        [OperationContract]
+        int InsertWork(clsWork prWork);
+        [OperationContract]
+        int UpdateWork(clsWork prWork);
+        [OperationContract]
+        int DeleteWork(clsWork prWork);
 
 
     }

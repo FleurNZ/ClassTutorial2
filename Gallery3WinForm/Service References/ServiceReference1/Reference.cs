@@ -378,6 +378,30 @@ namespace Gallery3WinForm.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateArtist", ReplyAction="http://tempuri.org/IService1/UpdateArtistResponse")]
         System.Threading.Tasks.Task<int> UpdateArtistAsync(Gallery3WinForm.ServiceReference1.clsArtist prArtist);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteArtist", ReplyAction="http://tempuri.org/IService1/DeleteArtistResponse")]
+        int DeleteArtist(Gallery3WinForm.ServiceReference1.clsArtist prArtist);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteArtist", ReplyAction="http://tempuri.org/IService1/DeleteArtistResponse")]
+        System.Threading.Tasks.Task<int> DeleteArtistAsync(Gallery3WinForm.ServiceReference1.clsArtist prArtist);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertWork", ReplyAction="http://tempuri.org/IService1/InsertWorkResponse")]
+        int InsertWork(Gallery3WinForm.ServiceReference1.clsWork prWork);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertWork", ReplyAction="http://tempuri.org/IService1/InsertWorkResponse")]
+        System.Threading.Tasks.Task<int> InsertWorkAsync(Gallery3WinForm.ServiceReference1.clsWork prWork);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateWork", ReplyAction="http://tempuri.org/IService1/UpdateWorkResponse")]
+        int UpdateWork(Gallery3WinForm.ServiceReference1.clsWork prWork);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateWork", ReplyAction="http://tempuri.org/IService1/UpdateWorkResponse")]
+        System.Threading.Tasks.Task<int> UpdateWorkAsync(Gallery3WinForm.ServiceReference1.clsWork prWork);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteWork", ReplyAction="http://tempuri.org/IService1/DeleteWorkResponse")]
+        int DeleteWork(Gallery3WinForm.ServiceReference1.clsWork prWork);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteWork", ReplyAction="http://tempuri.org/IService1/DeleteWorkResponse")]
+        System.Threading.Tasks.Task<int> DeleteWorkAsync(Gallery3WinForm.ServiceReference1.clsWork prWork);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -437,6 +461,38 @@ namespace Gallery3WinForm.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> UpdateArtistAsync(Gallery3WinForm.ServiceReference1.clsArtist prArtist) {
             return base.Channel.UpdateArtistAsync(prArtist);
+        }
+        
+        public int DeleteArtist(Gallery3WinForm.ServiceReference1.clsArtist prArtist) {
+            return base.Channel.DeleteArtist(prArtist);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteArtistAsync(Gallery3WinForm.ServiceReference1.clsArtist prArtist) {
+            return base.Channel.DeleteArtistAsync(prArtist);
+        }
+        
+        public int InsertWork(Gallery3WinForm.ServiceReference1.clsWork prWork) {
+            return base.Channel.InsertWork(prWork);
+        }
+        
+        public System.Threading.Tasks.Task<int> InsertWorkAsync(Gallery3WinForm.ServiceReference1.clsWork prWork) {
+            return base.Channel.InsertWorkAsync(prWork);
+        }
+        
+        public int UpdateWork(Gallery3WinForm.ServiceReference1.clsWork prWork) {
+            return base.Channel.UpdateWork(prWork);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateWorkAsync(Gallery3WinForm.ServiceReference1.clsWork prWork) {
+            return base.Channel.UpdateWorkAsync(prWork);
+        }
+        
+        public int DeleteWork(Gallery3WinForm.ServiceReference1.clsWork prWork) {
+            return base.Channel.DeleteWork(prWork);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteWorkAsync(Gallery3WinForm.ServiceReference1.clsWork prWork) {
+            return base.Channel.DeleteWorkAsync(prWork);
         }
     }
 }

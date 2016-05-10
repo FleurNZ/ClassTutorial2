@@ -57,6 +57,26 @@ namespace Gallery3SelfHost
         {
             return process(prArtist.MapToEntity(), System.Data.Entity.EntityState.Added);
         }
+
+        public int DeleteArtist(clsArtist prArtist)
+        {
+            return process(prArtist.MapToEntity(), System.Data.Entity.EntityState.Deleted);
+        }
+
+        public int UpdateWork(clsWork prWork)
+        {
+            return process(prWork.MapToEntity(), System.Data.Entity.EntityState.Modified);
+        }
+
+        public int InsertWork(clsWork prWork)
+        {
+            return process(prWork.MapToEntity(), System.Data.Entity.EntityState.Added);
+        }
+
+        public int DeleteWork(clsWork prWork)
+        {
+            return process(prWork.MapToEntity(), System.Data.Entity.EntityState.Deleted);
+        }
     }
 }
 

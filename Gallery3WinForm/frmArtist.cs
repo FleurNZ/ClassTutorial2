@@ -185,6 +185,7 @@ namespace Gallery3WinForm
         {
             try
             {
+                (lstWorks.SelectedValue as clsWork).EditDetails();
                // _WorksList.EditWork(lstWorks.SelectedIndex);
                 //added step 13 task 7 tut 2.
                 frmMain.Instance.UpdateDisplay();
