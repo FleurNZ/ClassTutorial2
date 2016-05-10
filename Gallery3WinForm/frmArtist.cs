@@ -123,23 +123,48 @@ namespace Gallery3WinForm
 
             if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                Program.SvcClient.DeleteWork(lstWorks.SelectedItem as clsWork);
+                refreshFormFromDB(_Artist.Name);
                 //_WorksList.RemoveAt(lcIndex);
                 //added step 13 task 7 tut 2.
                 frmMain.Instance.UpdateDisplay();
-                updateDisplay();
+               
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
-            //string lcReply = new InputBox(clsWork.FACTORY_PROMPT).Answer;
-            //if (!string.IsNullOrEmpty(lcReply))
-            //{
-            //    _WorksList.AddWork(lcReply[0]);
-            //    //added step 13 task 7 tut 2.
-            //    frmMain.Instance.UpdateDisplay();
-            //    updateDisplay();
-            //}
+        {///maybe need to format thias differently
+            try
+            {
+                string lcReply = new InputBox(clsWork.FACTORY_PROMPT).Answer;
+                if (!string.IsNullOrEmpty(lcReply))// not canceled?
+                {
+                    clsWork lcWork = clsWork.NewWork(lcReply[0]);
+                    if (lcWork != null)//valid artwork created?
+                    {
+                        if (txtName.Enabled)//new artist not saved?
+                        {
+                            pushData();
+                            Program.SvcClient.InsertArtist(_Artist);
+                            txtName.Enabled = false;
+                        }
+
+                        lcWork.ArtistName = _Artist.Name;
+                        lcWork.EditDetails();
+                        if (!string.IsNullOrEmpty(lcWork.Name))// not cancelled?
+                        {
+                            refreshFormFromDB(_Artist.Name);
+                            frmMain.Instance.UpdateDisplay();
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
         }
 
         //more code added to make btn intelligent step 9 or 7 tut 2.

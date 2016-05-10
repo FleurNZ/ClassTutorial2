@@ -18,6 +18,18 @@ namespace Gallery3WinForm.ServiceReference1
         }
 
         public abstract void EditDetails();
+        public static clsWork NewWork(char prChoice)
+        {
+            switch (char.ToUpper(prChoice))
+            {
+                case 'P': return new clsPainting();
+                case 'S': return new clsSculpture();
+                case 'H': return new clsPhotograph();
+                default: return null;
+            }
+        }
+
+        public static readonly string FACTORY_PROMPT = "Enter P for Painting, S for Sculpture and H for Photograph";
     }
 
     public partial class clsPainting
