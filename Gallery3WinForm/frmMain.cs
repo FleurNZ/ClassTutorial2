@@ -124,21 +124,24 @@ namespace Gallery3WinForm
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //string lcKey;
+           
+            string lcKey;
 
-            //lcKey = Convert.ToString(lstArtists.SelectedItem);
-            //if (lcKey != null && MessageBox.Show("Are you sure?", "Deleting artist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //    try
-            //    {
-            //        _ArtistList.Remove(lcKey);
-            //        lstArtists.ClearSelected();
-            //        UpdateDisplay();
+            lcKey = Convert.ToString(lstArtists.SelectedItem);
+            if (lcKey != null && MessageBox.Show("Are you sure?", "Deleting artist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                try
+                {
+                    clsArtist lcArtist = new clsArtist() { Name = lcKey };
+                    Program.SvcClient.DeleteArtist(lcArtist);
+                    //_ArtistList.Remove(lcKey);
+                    lstArtists.ClearSelected();
+                    UpdateDisplay();
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message, "Error deleing artist");
-            //    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error deleing artist");
+                }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
