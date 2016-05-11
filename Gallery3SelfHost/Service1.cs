@@ -39,12 +39,21 @@ namespace Gallery3SelfHost
 
         private int process<TEntity>(TEntity prItem, System.Data.Entity.EntityState prState) where TEntity : class
         {
-            using (Gallery_DataEntities lcContext = new Gallery_DataEntities())
+            try
             {
-                lcContext.Entry(prItem).State = prState;
-                int lcCount = lcContext.SaveChanges();
-                return lcCount;
+                using (Gallery_DataEntities lcContext = new Gallery_DataEntities())
+                {
+                    lcContext.Entry(prItem).State = prState;
+                    int lcCount = lcContext.SaveChanges();
+                    return lcCount;
 
+                }
+            }
+            catch (Exception ex)
+            {
+                //another option is throw ex.GetBaseException(); with the app config modification.
+                Console.WriteLine(ex.GetBaseException().Message);
+                return 0; //looking for int.
             }
         }
 
@@ -78,5 +87,6 @@ namespace Gallery3SelfHost
             return process(prWork.MapToEntity(), System.Data.Entity.EntityState.Deleted);
         }
     }
+    ///app config can changed exception details value to true to find out more information about exception if using console debug is not an option.
 }
 
