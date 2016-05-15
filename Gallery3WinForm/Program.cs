@@ -9,6 +9,7 @@ namespace Gallery3WinForm
 {
     static class Program
     {
+        //Just need to work on adding cascade delete and checking other bits that can be corrected and improved.
         public static ServiceReference1.Service1Client SvcClient = new ServiceReference1.Service1Client();
 
         /// <summary>
